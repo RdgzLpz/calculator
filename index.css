@@ -1,0 +1,84 @@
+.container  {
+    display:   grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+#screen {
+    border-top-left-radius:  5px;
+    border-top-right-radius:  5px;
+}
+#screen, #result {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    padding-left: 17px;
+    grid-column:  span 4;
+    margin:  0;
+    font-size:  1.5em;
+    background: white;
+}
+input,  button  {
+    grid-column:  span 1;
+    border: none;
+    padding: 0.8em;
+    background-color: #e3e3e4;
+    width: 100%;
+    font-size:  1.5em;
+    font-size:  1.7em;
+}
+input:hover, button:hover {
+    background:rgb(206, 241, 252);
+} 
+#zero {
+    border-bottom-left-radius:  5px;
+}
+#multiply {
+    border-bottom-right-radius:  5px;
+}
+.black {
+    color: black;
+}
+.blue {
+    color: blue;
+    border-left: 1px solid lightgray;
+}
+.row  {
+    width: 100%;
+}
+
+@media screen and (min-width:320px) {
+    body {
+        margin: 0;
+    }
+}
+@media screen and (min-width:480) {
+    body {
+    }
+}
+@media screen and (min-width:600px) {
+    body {
+        margin-top: 18px;
+        margin-right: 20%;
+        margin-bottom: 10px;
+        margin-left: 20%;
+        background-image: -webkit-linear-gradient(right, lightblue, blue);
+    }
+    .container {
+        margin: 10%;
+    }
+}
+@media screen and (min-width:720px) {
+    body  {
+        height: 100%;
+        background: -webkit-linear-gradient(left, black, transparent);
+        margin-top: 5%;
+        margin-right: 25%;
+        margin-bottom: 10px;
+        margin-left: 25%;
+    }
+}
+@media screen and (min-width:1024px) {
+    body {
+        margin-right: 30%;
+    }
+}
