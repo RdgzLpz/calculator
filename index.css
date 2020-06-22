@@ -27,7 +27,7 @@ input,  button  {
     font-size:  1.7em;
 }
 input:hover, button:hover {
-    background:rgb(206, 241, 252);
+    background:rgb(219, 244, 252);
 } 
 #zero {
     border-bottom-left-radius:  5px;
