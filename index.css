@@ -17,6 +17,9 @@
     font-size:  1.5em;
     background: white;
 }
+#result {
+	padding-top: 0;
+}
 input,  button  {
     grid-column:  span 1;
     border: none;
