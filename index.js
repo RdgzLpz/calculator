@@ -1,3 +1,4 @@
+// Refs
 let button;
 let screen  =   document.getElementById("screen");
 let  mainResult  =  document.getElementById("result");
@@ -17,46 +18,80 @@ for (let i = 0;  i  <  buttons.length;  i++)  {
     button.addEventListener('click' ,  addToScreen) 
      
 }
+/******************************************************************************************************************************************
+ *      *         FUNCTIONALITY
+******************************************************************************************************************************************/
 
 //add new values to screen
 function addToScreen(event)  {
     let newValue = event.target.value;
-    deleteValues.value = "<";
-    
+    // scientist math ( tries )
+    if (newValue == "tan(") {
+        screenValues.push(Math.tan());
+         screen.innerHTML  +=  screenValues[screenValues.length -1];
+    } ;
+    // control acess
     if (isNaN(screenValues[screenValues.length -1]) && isNaN(newValue))  ; else {
         screenValues.push(newValue);
         screen.innerHTML  +=  screenValues[screenValues.length -1];
+       ifScreenValuesChangeEval();
     }
+    if ( screenValues.length >= 36 ) calcScreenFontSize();
+    deleteValues.value = "<";
 }
 
-//adding by keyDowning
+//add by keyDowning
 function addKeyToScreen(event) {
     let newValue = event.key;
     let isLetter = /[a-z]/.test(newValue);
     deleteValues.value = "<";
-    if (newValue == "Backspace") eraser();
+    if (newValue == "Backspace") {
+        eraser();
+        if ( screenValues.length >= 36 )calcScreenFontSize();
+        ifScreenValuesChangeEval();
+    }
     else if (newValue == "Enter") {
             getResult();
             deleteValues.value = "C";
-    } 
-    else if (newValue == "c" && mainResult.innerHTML != "") cleanAll(); 
+    }                               
+    else if (
+        newValue == "c" &&
+        screen.innerHTML != "" &&
+        mainResult.innerHTML == ""
+    ) cleanAll(); 
     else if (isNaN(screenValues[screenValues.length -1]) &&  isNaN(newValue) || isLetter);
     else {
+        if (screenValues.length >= 36) calcScreenFontSize();
         screenValues.push(newValue);
         screen.innerHTML += screenValues[screenValues.length -1];
-        console.log(screenValues);
     }
-
+   if ( eval( screen.innerHTML ) != screen.innerHTML && screen.innerHTML != "" ) ifScreenValuesChangeEval();
 }
+    
+//if the values on screen change: eval
+const ifScreenValuesChangeEval = () => {
+    if  (  screen.innerHTML == "" &&
+            screenValues.indexOf("+") == -1 &&
+            screenValues.indexOf("-") == -1 &&
+            screenValues.indexOf("*") == -1 
+        ) mainResult.innerHTML = ""; 
+    else if  ( eval(screen.innerHTML) != screen.innerHTML ) mainResult.innerHTML = eval(screen.innerHTML);
+} 
+
 //Get result
 function  getResult()  {
-    mainResult.innerHTML  = eval(screen.innerHTML) ;
-    if (screen.innerHTML == "") mainResult.innerHTML = "";
+    screen.innerHTML = eval(screen.innerHTML);
+    mainResult.innerHTML = "";
+    screen.className = "showing-result";
+    mainResult.className = "showing-result";
     deleteValues.value = "C";
 }
 
 function ternaryOperator() {
-    deleteValues.value == "<" ?  eraser() :  cleanAll();
+    if ( deleteValues.value == "<" ) {
+        eraser();
+        ifScreenValuesChangeEval();
+    }  else cleanAll();
 }
 
 function eraser() {
@@ -68,11 +103,24 @@ function eraser() {
         result += arr[i];
     }
     screenValues.pop();
+    if ( screenValues.length >= 36 ) calcScreenFontSize();
     return screen.innerHTML = result; 
 }
 
 function cleanAll() {
     screen.innerHTML = "";
-    getResult();
+    mainResult.innerHTML = "";
     deleteValues.value = "<";
+    screenValues = [  ];
+    screen.className ="no-showing-result";
+    mainResult.className ="no-showing-result";
+    calcScreenFontSize();
+}
+// calc screen's fontSize
+function calcScreenFontSize() {
+    if ( screen.innerHTML =="" ) screen.style.fontSize = "1.5rem";
+    else {
+        let size = 35 * 1.5 / screenValues.length;
+        screen.style.fontSize = size + "rem"; 
+    }
 }
