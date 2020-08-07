@@ -120,7 +120,7 @@ function cleanAll() {
 function calcScreenFontSize() {
     if ( screen.innerHTML =="" ) screen.style.fontSize = "1.5rem";
     else {
-        let size = 35 * 1.5 / screenValues.length;
+        let size =  35 * 1.5 / screenValues.length;
         screen.style.fontSize = size + "rem"; 
     }
 }
