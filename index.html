@@ -3,31 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="index.css">
+    <meta name="description" content="awesome scientist calculator">
+    <meta name="keywords" content="awesome,scientist,calculator,calc,math operations">
+    <meta name="theme-color" content="#FFF">
+    <link rel="stylesheet" href="./index.css">
+    <title>Scientist Calculator</title>
 </head>
 <body>
     <div class="container">
-        <div id="screen" class="no-showing-result" value="null"></div>
-        <div id="result" class="no-showing-result" value="null"></div>
-        <input class="black" type="button" value="7">
-        <input class="black" type="button" value="8">
-        <input class="black" type="button" value="9">
-        <input class="blue"  type="button" id ="delete" value="<">
-        <input class="black" type="button" value="4">
-        <input class="black" type="button" value="5">
-        <input class="black" type="button" value="6">
-        <input class="blue" type="button" value="+">
-        <input class="black" type="button" value="1">
-        <input class="black" type="button" value="2">
-        <input class="black" type="button" value="3">
-        <input class="blue" type="button" value="-">
-        <input class="black" id="zero" type="button" value="0">
-        <input class="black" type="button" value=".">
-        <button class="black" id="equal">=</button>
-        <input class="blue" id="multiply" type="button" value="*">
-        <!--<input type="button" id="tan" value="tan(">-->
-    </div>    
-    <script src="index.js"></script>
-</body> 
+        <section id="screen"></section>
+        <section id="result"></section>
+        <section id="buttons">
+            <section id="numbers">
+                <section class="row-numbers">
+                    <button class="number">7</button>
+                    <button class="number">8</button>
+                    <button class="number">9</button>
+                </section>
+                <section class="row-numbers">
+                    <button class="number">4</button>
+                    <button class="number">5</button>
+                    <button class="number">6</button>
+                </section>
+                <section class="row-numbers">
+                    <button class="number">1</button>
+                    <button class="number">2</button>
+                    <button class="number">3</button>
+                </section>
+                <section class="row-numbers">
+                    <button class="number">0</button>
+                    <button class="number">.</button>
+                    <button class="number">=</button>
+                </section>
+            </section>
+            <section id="operators">
+                <button class="operator">&lt;</button>
+                <button class="operator">&divide;</button>
+                <button class="operator">x</button>
+                <button class="operator">-</button>
+                <button class="operator">+</button>
+            </section>
+            <section id="scientist-methods">&lt;</section>
+        </section>
+    </div>
+    <script src="./index.js"></script>
+</body>
 </html>
