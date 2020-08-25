@@ -23,7 +23,6 @@
     display: flex;
 }
 #operators {
-    border-bottom: .1px solid lightgray ;
     border-left: .2px solid #b5b5fd;
     display: flex;
     flex-direction: column;
