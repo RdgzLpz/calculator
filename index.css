@@ -8,7 +8,7 @@
 #screen, #result {
     width: 100%;
     height: 4em;
-    background: rgb(248, 247, 247);
+    background: rgb(248, 248, 248);
 }
 #buttons {
     display: flex;
@@ -44,8 +44,6 @@ button {
     cursor: pointer;
 }
 .number {
-    border-right: .1px solid lightgray;
-    border-bottom: .1px solid lightgray;
     flex: 1;
     height: 4.4em;
     font-weight: 500;
