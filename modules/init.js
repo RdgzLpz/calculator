@@ -1,13 +1,13 @@
 // Refs
 let button;
-const screen  =   document.getElementById("screen");
-const  mainResult  =  document.getElementById("result");
+const screen  =   document.querySelector("#screen");
+const  mainResult  =  document.querySelector("#result");
 let screenValues = [ ];
 
-let deleteValues  =  document.getElementById("delete");
+let deleteValues  =  document.querySelector("#delete");
 deleteValues.addEventListener("click", ternaryOperator);
 
-let  equalSym  =  document.getElementById("equal");
+let  equalSym  =  document.querySelector("#equal");
 equalSym.addEventListener("click", getResult);
 window.addEventListener("keydown", addKeyToScreen)
 //select all the inputs except the 3rd and add by clicking
@@ -94,15 +94,15 @@ function ternaryOperator() {
     }  else cleanAll();
 }
 
-function eraser() {
-    let arr = [];
+function eraser( ) {
+    let arr = [ ];
     let result = "";
     for (let i in screen.innerHTML) arr.push(screen.innerHTML[i]);
-    arr.pop();
+    arr.pop( );
     for (let i in arr) {
         result += arr[i];
     }
-    screenValues.pop();
+    screenValues.pop( );
     if ( screenValues.length >= 29 ) calcScreenFontSize();
     return screen.innerHTML = result; 
 }

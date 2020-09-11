@@ -1,3 +1,6 @@
+body {
+    background: rgb(251, 251, 251);
+}
 .container {
     margin: auto;
     display: flex;
@@ -30,14 +33,6 @@
     flex-direction: column;
     flex: 2;
 }
-#scientific-methods {
-    flex: .5;
-    width: 10em;
-    font-weight: 800;
-    background: blue;
-    color: #FFF;
-    cursor: pointer;
-}
 button {
     border: 0;
     font-size: 1.1rem;
@@ -60,4 +55,9 @@ button {
     .container {
         margin: 0;
     }
+}
+@media screen and (min-width:1024px) {
+	.container {
+		margin: 10vh auto;
+	}
 }
